@@ -4,7 +4,7 @@ class CreateRegistries < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :hometown
       t.string :comments
-      t.integer :peak_id
+      t.integer :mountain_id
 
       t.timestamps
     end

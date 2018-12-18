@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_12_18_200311) do
     t.string "name"
     t.string "hometown"
     t.string "comments"
-    t.integer "peak_id"
+    t.integer "mountain_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

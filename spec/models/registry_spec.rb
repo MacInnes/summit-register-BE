@@ -7,7 +7,7 @@ describe Registry do
       name: "Andrew",
       hometown: "PV",
       comments: "Great hike",
-      peak_id: 1
+      mountain_id: 1
     )
   end
 
@@ -19,13 +19,17 @@ describe Registry do
     expect(@registry.name).to eq("Andrew")
     expect(@registry.hometown).to eq("PV")
     expect(@registry.comments).to eq("Great hike")
-    expect(@registry.peak_id).to eq(1)
+    expect(@registry.mountain_id).to eq(1)
   end
 
   describe 'Validations' do
     it { should validate_presence_of :name }
     it { should validate_presence_of :hometown }
     it { should validate_presence_of :comments }
-    it { should validate_presence_of :peak_id }
+    it { should validate_presence_of :mountain_id }
+  end
+
+  describe 'Relationships' do
+    it {should belong_to :mountain}
   end
 end

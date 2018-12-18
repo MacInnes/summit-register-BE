@@ -33,4 +33,7 @@ describe Mountain, type: :model do
     it { should validate_presence_of :difficulty }
     it { should validate_presence_of :range }
   end
+  describe 'Relationships' do
+    it {should have_many :registries }
+  end
 end
