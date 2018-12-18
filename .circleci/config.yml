@@ -1,0 +1,74 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  # this is the actual deployment process
+  deploy:
+    docker:
+      # specify the version you desire here
+       - image: circleci/ruby:2.4.1-node-browsers
+
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
+  # this is the test process
+  test:
+    docker:
+      # specify the version you desire here
+       - image: circleci/ruby:2.4.1-node-browsers
+         environment:
+           - RAILS_ENV: test
+           - PGHOST: 127.0.0.1
+           - PGUSER: ubuntu
+
+       - image: circleci/postgres:10.4
+         environment:
+         - POSTGRES_USER: ubuntu
+         - POSTGRES_DB: summit_registry_test
+         - POSTGRES_PASSWORD: ""
+
+    steps:
+      - checkout
+      # this restores cache if it exists in the same state
+      - restore_cache:
+          keys:
+            - bundle-install-{{ checksum "Gemfile.lock" }}
+            - bundle-install-
+      # runs using if cache exists, this runs bundle install and saves it to a specific file (vendor/bundle)
+      - run:
+          name: install dependencies
+          command: bundle install --path vendor/bundle
+
+      # this saves the cache
+      - save_cache:
+          key: bundle-install-{{ checksum "Gemfile.lock" }}
+          paths: vendor/bundle
+
+      - run:
+          name: create and migrate db
+          command: bundle exec rake db:{create,migrate,seed}
+
+      # this runs the tests!
+      - run:
+          name: run tests
+          command: rspec
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      #this runs the tests
+      - test
+      - deploy:
+          requires:
+            #this prevents anything from deploying if the tests don't pass
+            - test
+            #this allows deployment to Heroku from master if the tests pass
+          filters:
+            branches:
+              only: master
