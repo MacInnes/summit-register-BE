@@ -7,7 +7,7 @@ describe '/api/v1' do
     body = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
-    expect(body.data.length).to eq(61)
-    expect(body.data.first.name).to eq("Mt. Elbert")
+    expect(body[:data].length).to eq(61)
+    expect(body[:data].first[:attributes][:name]).to eq("Mt. Elbert")
   end
 end
