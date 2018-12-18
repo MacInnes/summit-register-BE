@@ -30,7 +30,7 @@ describe Mountain, type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :altitude }
     it { should validate_presence_of :summit }
-    it { shouldgit  validate_presence_of :difficulty }
+    it { should validate_presence_of :difficulty }
     it { should validate_presence_of :range }
   end
 end
