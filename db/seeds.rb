@@ -446,27 +446,9 @@ Registry.create(
   mountain_id: evans.id
 )
 Registry.create(
-  name: 'Andrew Hamilton',
-  hometown: "Denver",
-  comments: "I drove up here",
-  mountain_id: evans.id
-)
-Registry.create(
-  name: 'Andrew Hamilton',
-  hometown: "Denver",
-  comments: "I drove up here",
-  mountain_id: evans.id
-)
-Registry.create(
   name: 'Matt Peters',
   hometown: "Austin",
   comments: "whoa!!! I can see forever",
-  mountain_id: evans.id
-)
-Registry.create(
-  name: 'Freddy Levenson',
-  hometown: "New York somewhere",
-  comments: "do you have a corkscrew for my fancy sour",
   mountain_id: evans.id
 )
 Registry.create(
