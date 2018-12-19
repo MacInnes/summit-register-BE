@@ -5,4 +5,9 @@ class Api::V1::MountainsController < ApplicationController
     render json: MountainSerializer.new(mountains)
   end
 
+  def show
+    mountain = Mountain.all
+    render json: MountainSerializer.new(mountain)
+  end
+
 end
