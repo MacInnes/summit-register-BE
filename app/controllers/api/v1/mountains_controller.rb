@@ -6,7 +6,7 @@ class Api::V1::MountainsController < ApplicationController
   end
 
   def show
-    mountain = Mountain.all
+    mountain = Mountain.find(params[:id])
     render json: MountainSerializer.new(mountain)
   end
 
