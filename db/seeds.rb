@@ -6,7 +6,7 @@
 #   movies = Movie.create({ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-evans = Mountain.create(
+elbert = Mountain.create(
   name: 'Mt. Elbert',
   altitude: 14433,
   summit: "39.118075,-106.445417",
@@ -437,41 +437,29 @@ Registry.create(
   name: 'Bill Smith',
   hometown: "Colorado Springs",
   comments: "I hiked all this way for this view?",
-  mountain_id: evans.id
+  mountain_id: elbert.id
 )
 Registry.create(
   name: 'Andrew Hamilton',
   hometown: "Denver",
   comments: "I drove up here",
-  mountain_id: evans.id
-)
-Registry.create(
-  name: 'Andrew Hamilton',
-  hometown: "Denver",
-  comments: "I drove up here",
-  mountain_id: evans.id
-)
-Registry.create(
-  name: 'Andrew Hamilton',
-  hometown: "Denver",
-  comments: "I drove up here",
-  mountain_id: evans.id
+  mountain_id: elbert.id
 )
 Registry.create(
   name: 'Matt Peters',
   hometown: "Austin",
   comments: "whoa!!! I can see forever",
-  mountain_id: evans.id
+  mountain_id: elbert.id
 )
 Registry.create(
   name: 'Freddy Levenson',
   hometown: "New York somewhere",
   comments: "do you have a corkscrew for my fancy sour",
-  mountain_id: evans.id
+  mountain_id: elbert.id
 )
 Registry.create(
-  name: 'Freddy Levenson',
-  hometown: "New York somewhere",
-  comments: "do you have a corkscrew for my fancy sour",
-  mountain_id: evans.id
+  name: 'Bill Murray',
+  hometown: "Los Angeles",
+  comments: "Beautiful day on the trail!",
+  mountain_id: elbert.id
 )
