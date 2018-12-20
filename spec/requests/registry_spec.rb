@@ -36,6 +36,7 @@ describe 'Registry' do
     )
 
   end
+
   it 'serializes properly' do
     get "/api/v1/mountains/#{@mountain.id}"
 
@@ -46,4 +47,19 @@ describe 'Registry' do
     expect(body[:data][:attributes][:registries][:data].first[:attributes][:hometown]).to eq(@registry1.hometown)
     expect(body[:data][:attributes][:registries][:data]).to_not include(@bad_registry)
   end
+
+  it 'can post to /api/v1/mountains/:id/registries' do
+    request_body = {
+      name: "This guy",
+      hometown: "NY",
+      comments: "Look at this guy",
+      mountain_id: @mountain.id
+    }
+
+    post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
+
+    response_body = JSON.parse(response.body, symbolize_names: :true)
+    expect(response).to be_successful
+  end
+
 end
