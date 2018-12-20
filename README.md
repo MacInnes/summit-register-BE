@@ -132,7 +132,7 @@ Example Response:
 - Adds a registry to the database.
 
 Expected Request Format:
-```json
+```
 {
       name: "Michael Smith",
       hometown: "Omaha, NE",
@@ -142,12 +142,12 @@ Expected Request Format:
 ```
 
 Example Response:
-```json
+```
 {:message=>"Registry created."}
 ```
 
 *An error will produce:*
 - The post request will error if one of the Registry parameters are missing.
-```json
+```
 {:message=>"Invalid request, missing required parameters."}
 ```
