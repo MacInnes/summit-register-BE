@@ -59,7 +59,22 @@ describe 'Registry' do
     post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
 
     response_body = JSON.parse(response.body, symbolize_names: :true)
-    expect(response).to be_successful
+    expect(response.status).to eq(201)
+    expect(response_body[:message]).to eq("Registry created.")
+  end
+
+  it "can't post to /api/v1/mountains/:id/registries with invalid data" do
+    request_body = {
+      name: "This guy",
+      hometown: "NY",
+      mountain_id: @mountain.id
+    }
+
+    post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
+
+    response_body = JSON.parse(response.body, symbolize_names: :true)
+    expect(response.status).to eq(400)
+    expect(response_body[:message]).to eq("Invalid request, missing required parameters.")
   end
 
 end
