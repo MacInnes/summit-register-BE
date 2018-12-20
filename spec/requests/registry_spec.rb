@@ -55,7 +55,6 @@ describe 'Registry' do
       comments: "Look at this guy",
       mountain_id: @mountain.id
     }
-
     post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
 
     response_body = JSON.parse(response.body, symbolize_names: :true)
