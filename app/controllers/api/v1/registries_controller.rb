@@ -9,7 +9,7 @@ class Api::V1::RegistriesController < ApplicationController
     )
     if registry.save
       mountain = Mountain.find(registry.mountain_id)
-      render json: MountainSerializer.new(mountain).serialized_json
+      render json: RegistrySerializer.new(mountain.registries).serialized_json
     else
       render status: 400, json: {message: "Invalid request, missing required parameters."}
     end

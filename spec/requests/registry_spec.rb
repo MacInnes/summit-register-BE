@@ -60,8 +60,8 @@ describe 'Registry' do
 
     response_body = JSON.parse(response.body, symbolize_names: :true)
     expect(response).to be_successful
-    expect(response_body[:data][:attributes][:registries][:data].length).to eq(3)
-    expect(response_body[:data][:attributes][:registries][:data].last[:attributes][:hometown]).to eq(request_body[:hometown])
+    expect(response_body[:data].length).to eq(3)
+    expect(response_body[:data].last[:attributes][:hometown]).to eq(request_body[:hometown])
   end
 
   it "can't post to /api/v1/mountains/:id/registries with invalid data" do
