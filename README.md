@@ -80,7 +80,7 @@ Example Response:
               {
           }
       }
-
+   ]
 }
 
 ```
@@ -137,17 +137,34 @@ Expected Request Format:
       name: "Michael Smith",
       hometown: "Omaha, NE",
       comments: "I can see my house",
-      mountain_id: @mountain.id
+      mountain_id: 1
     }
 ```
 
 Example Response:
 ```
-{:message=>"Registry created."}
+{:data=>
+  [{:id=>"4",
+    :type=>"registry",
+    :attributes=>
+     {:name=>"Carter Beauford", :hometown=>"Charlottesville, VA", :comments=>"Great hike", :date=>"2018-12-21 01:23:10 UTC"}},
+   {:id=>"5",
+    :type=>"registry",
+    :attributes=>
+     {:name=>"Jeff Coffin",
+      :hometown=>"Nashville, TN",
+      :comments=>"Hi Mom",
+      :date=>"2018-12-21 01:23:10 UTC"}},
+   {:id=>"7",
+    :type=>"registry",
+    :attributes=>
+     {:name=>"Michael Smith",
+      :hometown=>"Omaha, NE",
+      :comments=>"I can see my house",
+      :date=>"2018-12-21 01:23:10 UTC"}}]}
 ```
 
 *An error will produce:*
 - The post request will error if one of the Registry parameters are missing.
 ```
 {:message=>"Invalid request, missing required parameters."}
-```
