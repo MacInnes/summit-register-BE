@@ -13,13 +13,15 @@ describe 'Registry' do
       name: "Andrew",
       hometown: "PV",
       comments: "Great hike",
-      mountain_id: @mountain.id
+      mountain_id: @mountain.id,
+      sign_time: "12/22/18 11:32am"
     )
     @registry2 = Registry.create(
       name: "Andrew",
       hometown: "Denver",
       comments: "Wow so dope",
-      mountain_id: @mountain.id
+      mountain_id: @mountain.id,
+      sign_time: "12/21/18 9:16am"
     )
     bad_mountain = Mountain.create(
       name: 'Bad mountain',
@@ -53,11 +55,13 @@ describe 'Registry' do
       name: "This guy",
       hometown: "NY",
       comments: "Look at this guy",
-      mountain_id: @mountain.id
+      mountain_id: @mountain.id,
+      sign_time: "12/22/18 11:22am"
     }
     post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
 
     response_body = JSON.parse(response.body, symbolize_names: :true)
+
     expect(response).to be_successful
     expect(response_body[:data].length).to eq(3)
     expect(response_body[:data].last[:attributes][:hometown]).to eq(request_body[:hometown])
