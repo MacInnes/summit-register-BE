@@ -5,7 +5,8 @@ class Api::V1::RegistriesController < ApplicationController
       name: params[:name],
       hometown: params[:hometown],
       comments: params[:comments],
-      mountain_id: params[:mountain_id]
+      mountain_id: params[:mountain_id],
+      sign_time: params[:sign_time]
     )
     if registry.save
       mountain = Mountain.find(registry.mountain_id)
