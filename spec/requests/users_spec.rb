@@ -45,14 +45,16 @@ describe '/api/v1' do
       hometown: "PV",
       comments: "Great hike",
       mountain_id: @mountain.id,
-      user_id: @user.id
+      user_id: @user.id,
+      sign_time: "12/21/18 9:16am"
     )
     @registry2 = Registry.create(
       name: "Andrew",
       hometown: "Denver",
       comments: "Wow so dope",
       mountain_id: @mountain.id,
-      user_id: @user.id
+      user_id: @user.id,
+      sign_time: "12/21/18 9:16am"
     )
     bad_mountain = Mountain.create(
       name: 'Bad mountain',

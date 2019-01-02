@@ -22,7 +22,7 @@ Visit the deployed API here: https://summit-register-api.herokuapp.com/
 - Run `bundle update`
 - Run `rake db:{create,migrate,seed}`
 - Run `rails s` to spin up the server
-- Visit `localhost:3000` in your browswer.
+- Visit `localhost:3000` in your browser.
 
 ## Testing
 - Run the test suite with `rspec`

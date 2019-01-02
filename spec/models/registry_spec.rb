@@ -7,7 +7,8 @@ describe Registry do
       name: "Andrew",
       hometown: "PV",
       comments: "Great hike",
-      mountain_id: 1
+      mountain_id: 1,
+      sign_time: "12/22/18 11:22am"
     )
   end
 
@@ -20,6 +21,7 @@ describe Registry do
     expect(@registry.hometown).to eq("PV")
     expect(@registry.comments).to eq("Great hike")
     expect(@registry.mountain_id).to eq(1)
+    expect(@registry.sign_time).to eq("12/22/18 11:22am")
   end
 
   describe 'Validations' do
@@ -27,6 +29,7 @@ describe Registry do
     it { should validate_presence_of :hometown }
     it { should validate_presence_of :comments }
     it { should validate_presence_of :mountain_id }
+    it { should validate_presence_of :sign_time }
   end
 
   describe 'Relationships' do
