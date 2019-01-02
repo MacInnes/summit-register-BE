@@ -31,7 +31,7 @@ describe '/api/v1' do
   it "can view all of a user's registries" do
     @user = User.create(
       name: "Anonymous",
-      uid: "iewibckiueriaclkapocwju3468"
+      uid: "iewibcwyerjvhb3468"
     )
     @mountain = Mountain.create(
       name: 'Mt. Elbert',
