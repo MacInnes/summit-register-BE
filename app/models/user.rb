@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class User < ApplicationRecord
-  validates_presence_of :name, uniqueness: true
+  validates_presence_of :name, :uid
 
   has_many :registries
 

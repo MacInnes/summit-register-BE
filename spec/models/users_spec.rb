@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User do
   it 'exists' do
-    user = User.create(name: "Andrew")
+    user = User.create(name: "Andrew", uid: "ierivhbcdjslo")
     expect(user).to be_a(User)
     expect(User.first.name).to eq(user.name)
   end

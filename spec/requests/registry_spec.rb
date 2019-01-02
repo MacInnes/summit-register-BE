@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'Registry' do
   before(:each) do
     @user = User.create(
-      name: "Anonymous"
+      name: "Anonymous",
+      uid: "iurekbswcl3ubscljsc"
     )
     @user.generate_api_key
     @mountain = Mountain.create(

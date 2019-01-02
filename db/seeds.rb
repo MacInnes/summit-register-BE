@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create(
-  name: "Anonymous"
+  name: "Anonymous",
+  uid: "iyeriweckjcqweui"
 )
 
 evans = Mountain.create(

@@ -3,7 +3,8 @@ require 'rails_helper'
 describe '/api/v1' do
   it 'can create a user via POST /api/v1/users' do
     payload = {
-      name: "Andrew"
+      name: "Andrew",
+      uid: "asdf"
     }
 
     post '/api/v1/users', params: payload
@@ -11,14 +12,13 @@ describe '/api/v1' do
     body = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
-
     expect(body[:data][:attributes][:name]).to eq("Andrew")
     expect(body[:data][:attributes][:api_key]).to_not be_nil
   end
 
-  it "can't create a user without a username" do
+  it "can't create a user without a username or uid" do
     payload = {
-      username: "Invalid"
+      username: "Invalid",
     }
 
     post '/api/v1/users', params: payload
@@ -30,7 +30,8 @@ describe '/api/v1' do
 
   it "can view all of a user's registries" do
     @user = User.create(
-      name: "Anonymous"
+      name: "Anonymous",
+      uid: "iewibckiueriaclkapocwju3468"
     )
     @mountain = Mountain.create(
       name: 'Mt. Elbert',
@@ -77,7 +78,8 @@ describe '/api/v1' do
 
   it "can't get a user that doesn't exist" do
     @user = User.create(
-      name: "Anonymous"
+      name: "Anonymous",
+      uid: "ireiubdjklsnc8632"
     )
     @mountain = Mountain.create(
       name: 'Mt. Elbert',
