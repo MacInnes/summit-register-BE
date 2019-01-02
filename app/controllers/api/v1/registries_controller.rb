@@ -19,7 +19,11 @@ class Api::V1::RegistriesController < ApplicationController
   private
 
   def get_user
-    params[:user_id] || User.find_by_name("Anonymous").id
+    if params[:api_key]
+      User.find_by_api_key(params[:api_key]).id
+    else
+      User.first.id
+    end
   end
 
 end

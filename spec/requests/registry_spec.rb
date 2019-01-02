@@ -5,6 +5,7 @@ describe 'Registry' do
     @user = User.create(
       name: "Anonymous"
     )
+    @user.generate_api_key
     @mountain = Mountain.create(
       name: 'Mt. Elbert',
       altitude: 14433,
@@ -59,7 +60,7 @@ describe 'Registry' do
       hometown: "NY",
       comments: "Look at this guy",
       mountain_id: @mountain.id,
-      user_id: @user.id # TODO: reformat this to use user auth key
+      api_key: @user.api_key
     }
     post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
 
