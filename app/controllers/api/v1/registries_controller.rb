@@ -5,7 +5,8 @@ class Api::V1::RegistriesController < ApplicationController
       name: params[:name],
       hometown: params[:hometown],
       comments: params[:comments],
-      mountain_id: params[:mountain_id]
+      mountain_id: params[:mountain_id],
+      user_id: get_user
     )
     if registry.save
       mountain = Mountain.find(registry.mountain_id)
@@ -13,6 +14,12 @@ class Api::V1::RegistriesController < ApplicationController
     else
       render status: 400, json: {message: "Invalid request, missing required parameters."}
     end
+  end
+
+  private
+
+  def get_user
+    params[:user_id] || User.find_by_name("Anonymous").id
   end
 
 end

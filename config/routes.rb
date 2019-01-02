@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :mountains, only: [:index, :show] do
         resources :registries, only: [:create]
       end
+      resources :users, only: [:create, :show]
     end
   end
 
