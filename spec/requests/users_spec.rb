@@ -74,4 +74,31 @@ describe '/api/v1' do
     expect(response_body[:data][:attributes][:name]).to eq(@user.name)
     expect(response_body[:data][:attributes][:registries][:data].length).to eq(2)
   end
+
+  it "can't get a user that doesn't exist" do
+    @user = User.create(
+      name: "Anonymous"
+    )
+    @mountain = Mountain.create(
+      name: 'Mt. Elbert',
+      altitude: 14433,
+      summit: "39.118075,-106.445417",
+      difficulty: "Blue",
+      range: "Sawatch"
+    )
+    @registry1 = Registry.create(
+      name: "Andrew",
+      hometown: "PV",
+      comments: "Great hike",
+      mountain_id: @mountain.id,
+      user_id: @user.id
+    )
+
+    get "/api/v1/users/#{@user.id + 1}"
+
+    response_body = JSON.parse(response.body, symbolize_names: true)
+    expect(response.status).to eq(404)
+    expect(response_body[:message]).to eq("Unable to find user")
+
+  end
 end

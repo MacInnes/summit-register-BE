@@ -10,4 +10,8 @@ class RegistrySerializer
     object.user.name
   end
 
+  attribute :mountain do |object|
+    object.mountain.name
+  end
+
 end

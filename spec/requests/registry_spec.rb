@@ -59,7 +59,7 @@ describe 'Registry' do
       hometown: "NY",
       comments: "Look at this guy",
       mountain_id: @mountain.id,
-      user_id: @user.id
+      user_id: @user.id # TODO: reformat this to use user auth key
     }
     post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
 
