@@ -33,6 +33,7 @@ describe Registry do
   end
 
   describe 'Relationships' do
-    it {should belong_to :mountain}
+    it { should belong_to :mountain }
+    it { should belong_to :user }
   end
 end

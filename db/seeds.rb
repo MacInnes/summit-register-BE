@@ -6,6 +6,11 @@
 #   movies = Movie.create({ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create(
+  name: "Anonymous",
+  uid: "iyeriweckjcqweui"
+)
+
 evans = Mountain.create(
   name: 'Mt. Elbert',
   altitude: 14433,
@@ -443,17 +448,20 @@ Registry.create(
   name: 'Andrew Hamilton',
   hometown: "Denver",
   comments: "I drove up here",
-  mountain_id: evans.id
+  mountain_id: evans.id,
+  user_id: user.id
 )
 Registry.create(
   name: 'Matt Peters',
   hometown: "Austin",
   comments: "whoa!!! I can see forever",
-  mountain_id: evans.id
+  mountain_id: evans.id,
+  user_id: user.id
 )
 Registry.create(
   name: 'Freddy Levenson',
   hometown: "New York somewhere",
   comments: "do you have a corkscrew for my fancy sour",
-  mountain_id: evans.id
+  mountain_id: evans.id,
+  user_id: user.id
 )

@@ -6,4 +6,12 @@ class RegistrySerializer
     "#{object.created_at}"
   end
 
+  attribute :user do |object|
+    object.user.name
+  end
+
+  attribute :mountain do |object|
+    object.mountain.name
+  end
+
 end
