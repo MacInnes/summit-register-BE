@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
       user.generate_api_key
       render status: 201, json: UserSerializer.new(user).serialized_json
     else
-      render 400, json: { message: "Invalid request" }
+      render status: 400, json: { message: "Invalid request" }
     end
   end
 
@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     if user
       render json: UserSerializer.new(user).serialized_json
     else
-      render 404, json: { message: "Unable to find user" }
+      render status: 404, json: { message: "Unable to find user" }
     end
   end
 

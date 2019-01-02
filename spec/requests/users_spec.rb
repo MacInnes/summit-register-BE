@@ -16,6 +16,18 @@ describe '/api/v1' do
     expect(body[:data][:attributes][:api_key]).to_not be_nil
   end
 
+  it "can't create a user without a username" do
+    payload = {
+      username: "Invalid"
+    }
+
+    post '/api/v1/users', params: payload
+
+    body = JSON.parse(response.body, symbolize_names: true)
+    expect(response.status).to eq(400)
+    expect(body[:message]).to eq("Invalid request")
+  end
+
   it "can view all of a user's registries" do
     @user = User.create(
       name: "Anonymous"
