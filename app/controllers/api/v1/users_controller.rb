@@ -1,12 +1,17 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    user = User.new(name: params[:name], uid: params[:uid])
-    if user.save
-      user.generate_api_key
-      render status: 201, json: UserSerializer.new(user).serialized_json
+    if User.find_by_uid(params[:uid])
+      user = User.find_by_uid(params[:uid])
+      render status: 200, json: UserSerializer.new(user).serialized_json
     else
-      render status: 400, json: { message: "Invalid request" }
+      user = User.new(name: params[:name], uid: params[:uid])
+      if user.save
+        user.generate_api_key
+        render status: 201, json: UserSerializer.new(user).serialized_json
+      else
+        render status: 400, json: { message: "Invalid request" }
+      end
     end
   end
 

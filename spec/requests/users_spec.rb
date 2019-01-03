@@ -16,6 +16,25 @@ describe '/api/v1' do
     expect(body[:data][:attributes][:api_key]).to_not be_nil
   end
 
+  it 'can login to an existing account' do
+    user = User.create(
+      name: "Andrew",
+      uid: "iuweficvaskjaew34p8fqkc"
+    )
+    user.generate_api_key
+
+    post "/api/v1/users", params: {
+      name: user.name,
+      uid: user.uid
+    }
+    body = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to be_successful
+
+    expect(body[:data][:attributes][:name]).to eq("Andrew")
+    expect(body[:data][:attributes][:api_key]).to eq(user.api_key)
+
+  end
+
   it "can't create a user without a username or uid" do
     payload = {
       username: "Invalid",
