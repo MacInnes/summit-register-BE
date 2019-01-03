@@ -93,6 +93,7 @@ describe '/api/v1' do
 
     expect(response).to be_successful
     response_body = JSON.parse(response.body, symbolize_names: true)
+
     expect(response_body[:data][:attributes][:name]).to eq(@user.name)
     expect(response_body[:data][:attributes][:registries][:data].length).to eq(2)
   end
