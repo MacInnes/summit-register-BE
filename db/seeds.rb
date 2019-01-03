@@ -6,12 +6,28 @@
 #   movies = Movie.create({ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(
-  name: "Anonymous",
+heather = User.create(
+  name: "Heather Tobin",
   uid: "iyeriweckjcqweui"
 )
+andrew = User.create(
+  name: "Andrew Tobin",
+  uid: "iyerideckjcqweui"
+)
+trent = User.create(
+  name: "Trent Tobin",
+  uid: "gyeriweckjcqweui"
+)
+emma = User.create(
+  name: "Emma Mannino",
+  uid: "gyeriweckreqweui"
+)
+stanley = User.create(
+  name: "Lord Stanley",
+  uid: "gyerxweckjcdweui"
+)
 
-evans = Mountain.create(
+elbert = Mountain.create(
   name: 'Mt. Elbert',
   altitude: 14433,
   summit: "39.118075,-106.445417",
@@ -417,7 +433,7 @@ Mountain.create(
   difficulty: "Black",
   range: "Elk"
 )
-Mountain.create(
+sanitas = Mountain.create(
   name: 'Mt. Sanitas',
   altitude: 6843,
   summit: "40.034434,-105.305301",
@@ -439,29 +455,47 @@ Mountain.create(
   range: "Front"
 )
 Registry.create(
-  name: 'Bill Smith',
-  hometown: "Colorado Springs",
-  comments: "I hiked all this way for this view?",
-  mountain_id: evans.id
+  name: 'Andrew Tobin',
+  hometown: "Highlands Ranch",
+  comments: "Family Hike in Boulder",
+  mountain_id: sanitas.id,
+  user_id: andrew.id,
+  sign_time: "12/30/18 1:43pm",
+  image_url: "https://i.imgur.com/iN1dl9O.jpg"
 )
 Registry.create(
-  name: 'Andrew Hamilton',
+  name: 'Trent Tobin',
+  hometown: "Highlands Ranch",
+  comments: "7 y/o. I'm glad it's done",
+  mountain_id: sanitas.id,
+  user_id: trent.id,
+  sign_time: "12/30/18 1:45pm",
+  image_url: "https://i.imgur.com/PREwmI1.jpg"
+)
+Registry.create(
+  name: 'Heather Tobin',
+  hometown: "Highlands Ranch",
+  comments: "Beautiful colors today. Easier than I remember",
+  mountain_id: sanitas.id,
+  user_id: heather.id,
+  sign_time: "12/30/18 1:46pm",
+  image_url: "https://i.imgur.com/1GDF7bT.jpg"
+)
+Registry.create(
+  name: 'Emma Mannino',
   hometown: "Denver",
-  comments: "I drove up here",
-  mountain_id: evans.id,
-  user_id: user.id
+  comments: "We got Married!!",
+  mountain_id: elbert.id,
+  user_id: emma.id,
+  sign_time: "6/23/18 10:03am",
+  image_url: "https://i.imgur.com/Z6HMBCY.jpg"
 )
 Registry.create(
-  name: 'Matt Peters',
-  hometown: "Austin",
-  comments: "whoa!!! I can see forever",
-  mountain_id: evans.id,
-  user_id: user.id
-)
-Registry.create(
-  name: 'Freddy Levenson',
-  hometown: "New York somewhere",
-  comments: "do you have a corkscrew for my fancy sour",
-  mountain_id: evans.id,
-  user_id: user.id
+  name: 'Lord Stanley',
+  hometown: "Toronto, ON",
+  comments: "Avalanche brought me here.",
+  mountain_id: elbert.id,
+  user_id: stanley.id,
+  sign_time: "8/21/18 11:14am",
+  image_url: "https://i.imgur.com/srqTCRO.jpg"
 )
