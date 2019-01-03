@@ -1,6 +1,6 @@
 class RegistrySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :hometown, :comments, :sign_time
+  attributes :name, :hometown, :comments, :sign_time, :image_url
 
   attribute :date do |object|
     "#{object.created_at}"

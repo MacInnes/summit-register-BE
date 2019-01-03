@@ -8,7 +8,8 @@ describe Registry do
       hometown: "PV",
       comments: "Great hike",
       mountain_id: 1,
-      sign_time: "12/22/18 11:22am"
+      sign_time: "12/22/18 11:22am",
+      image_url: "asdf.com"
     )
   end
 
@@ -22,6 +23,7 @@ describe Registry do
     expect(@registry.comments).to eq("Great hike")
     expect(@registry.mountain_id).to eq(1)
     expect(@registry.sign_time).to eq("12/22/18 11:22am")
+    expect(@registry.image_url).to eq("asdf.com")
   end
 
   describe 'Validations' do

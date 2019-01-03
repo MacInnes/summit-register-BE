@@ -65,7 +65,8 @@ describe 'Registry' do
       comments: "Look at this guy",
       mountain_id: @mountain.id,
       api_key: @user.api_key,
-      sign_time: "12/22/18 11:22am"
+      sign_time: "12/22/18 11:22am",
+      image_url: "https://media.mnn.com/assets/images/2012/11/pw_1.jpg"
     }
     post "/api/v1/mountains/#{@mountain.id}/registries", params: request_body
 
@@ -74,6 +75,7 @@ describe 'Registry' do
     expect(response).to be_successful
     expect(response_body[:data].length).to eq(3)
     expect(response_body[:data].last[:attributes][:hometown]).to eq(request_body[:hometown])
+    expect(response_body[:data].last[:attributes][:image_url]).to eq("https://media.mnn.com/assets/images/2012/11/pw_1.jpg")
   end
 
   it "can't post to /api/v1/mountains/:id/registries with invalid data" do
